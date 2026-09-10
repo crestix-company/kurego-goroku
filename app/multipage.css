@@ -1,0 +1,862 @@
+/* Multi-page editorial layouts. Shared brand and photo assets stay unchanged. */
+.desktop-nav a[aria-current='page'],
+.mobile-nav a[aria-current='page'] {
+  color: var(--red);
+  position: relative;
+}
+.desktop-nav a[aria-current='page']:after,
+.mobile-nav a[aria-current='page']:after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--red);
+}
+.home-introduction {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8vw;
+  align-items: center;
+}
+.home-introduction h2 {
+  font-size: clamp(38px, 4vw, 61px);
+  line-height: 1.65;
+}
+.home-introduction > div:last-child > p {
+  font-size: 17px;
+  line-height: 2.3;
+}
+.home-introduction .text-link {
+  margin-top: 25px;
+}
+.home-chapters {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  background: var(--ink);
+  gap: 2px;
+}
+.chapter-card {
+  position: relative;
+  min-height: 560px;
+  isolation: isolate;
+  overflow: hidden;
+  color: var(--paper);
+}
+.chapter-card > img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  z-index: -2;
+  transition: transform 0.7s;
+  object-position: center 58%;
+}
+.chapter-card:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(0deg, #111914f2 0%, #11191478 50%, #11191414 90%);
+}
+.chapter-card:hover > img {
+  transform: scale(1.025);
+}
+.chapter-card > div {
+  padding: 60px 5vw 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 560px;
+}
+.chapter-number {
+  font-family: Georgia, serif;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  margin-bottom: 16px;
+  color: #e7d1bc;
+}
+.chapter-card h2 {
+  font-size: clamp(32px, 3vw, 48px);
+  line-height: 1.6;
+}
+.chapter-card p {
+  font-size: 16px;
+  margin-top: 12px;
+}
+.chapter-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  border-top: 1px solid #ffffff60;
+  margin-top: 33px;
+  padding-top: 24px;
+  font-size: 16px;
+}
+.chapter-sake > img {
+  object-position: 50% center;
+}
+.home-guide {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 6vw;
+  align-items: center;
+}
+.takeout-teaser {
+  display: grid;
+  grid-template-columns: 0.9fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+.takeout-teaser > img {
+  aspect-ratio: 4/5;
+}
+.takeout-teaser h2,
+.access-teaser h2 {
+  font-size: clamp(25px, 2.2vw, 35px);
+  line-height: 1.75;
+}
+.home-guide .section-label {
+  margin-bottom: 17px;
+  font-size: 13px;
+}
+.home-guide .text-link {
+  margin-top: 17px;
+  font-size: 14px;
+  gap: 14px;
+}
+.access-teaser {
+  border-left: 1px solid var(--border);
+  padding-left: 4vw;
+}
+.access-teaser > p:not(.section-label) {
+  margin-top: 20px;
+  font-size: 15px;
+}
+.page-breadcrumb {
+  padding: 18px 4.5vw;
+  border-bottom: 1px solid var(--border);
+  background: var(--paper);
+}
+.page-breadcrumb [data-slot='breadcrumb-list'] {
+  gap: 14px;
+  font-size: 13px;
+}
+.page-breadcrumb [data-slot='breadcrumb-page'] {
+  color: var(--muted);
+}
+.page-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--ink);
+  color: var(--paper);
+  min-height: 490px;
+}
+.page-hero-copy {
+  padding: 55px 5vw 55px 8vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.page-kicker {
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  font-family: Georgia, serif;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  color: #dba592;
+}
+.page-kicker > span {
+  padding-right: 15px;
+  border-right: 1px solid currentColor;
+}
+.page-hero h1 {
+  font-size: clamp(36px, 3.6vw, 56px);
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  margin-top: 15px;
+}
+.page-hero h2 {
+  font-size: clamp(23px, 2.2vw, 34px);
+  line-height: 1.8;
+  letter-spacing: 0.08em;
+  margin-top: 25px;
+}
+.page-hero-description {
+  font-size: 16px;
+  line-height: 2.1;
+  margin-top: 20px;
+  color: #ccd0c7;
+}
+.page-hero-photo {
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+  max-height: 570px;
+}
+.page-hero-photo img {
+  height: 100%;
+  min-height: 490px;
+  object-position: center 55%;
+}
+.tone-paper {
+  background: #e8e4db;
+  color: var(--ink);
+}
+.tone-paper .page-kicker {
+  color: var(--red);
+}
+.tone-paper .page-hero-description {
+  color: #54594f;
+}
+.tone-wine {
+  background: #69352f;
+}
+.tone-wine .page-kicker {
+  color: #edcbba;
+}
+.tone-wine .page-hero-description {
+  color: #f0deda;
+}
+.tone-wine .page-hero-photo {
+  padding: 52px 4vw;
+  display: flex;
+  align-items: center;
+  background: #e8e4db;
+}
+.tone-wine .page-hero-photo img {
+  height: auto;
+  min-height: 0;
+  max-height: 450px;
+  object-fit: contain;
+}
+.page-jump-links {
+  display: flex;
+  justify-content: center;
+  gap: 8vw;
+  padding: 26px 5vw;
+  background: var(--paper);
+  border-bottom: 1px solid var(--border);
+}
+.page-jump-links a {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  font-size: 15px;
+}
+.page-jump-links a:hover {
+  color: var(--red);
+}
+.page-jump-links span {
+  color: var(--red);
+}
+.about-story {
+  display: grid;
+  grid-template-columns: 0.85fr 1.3fr;
+  gap: 10vw;
+}
+.story-heading > p:last-child {
+  font-size: 16px;
+  line-height: 2.2;
+  margin-top: 28px;
+}
+.story-chapters article {
+  display: flex;
+  gap: 24px;
+  padding: 0 0 32px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+.story-chapters article:last-child {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.story-chapters article > span {
+  font-family: var(--font-editorial);
+  color: var(--red);
+  font-size: 27px;
+  flex-shrink: 0;
+}
+.story-chapters h3 {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+.story-chapters p {
+  line-height: 2.2;
+  font-size: 16px;
+}
+.story-detail {
+  max-width: 960px;
+  width: 70%;
+  margin: 0 auto 10px;
+}
+.story-detail img {
+  aspect-ratio: 2/1;
+  object-position: 50% 54%;
+}
+.story-detail figcaption {
+  text-align: right;
+}
+.takeout-page-wrap {
+  padding: 80px 0;
+  background: var(--paper);
+}
+.drink-story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10vw;
+  align-items: start;
+}
+.drink-story h2 {
+  font-size: clamp(30px, 3vw, 46px);
+}
+.drink-story > div:last-child p {
+  font-size: 16px;
+  line-height: 2.3;
+}
+.drink-story > div:last-child p + p {
+  margin-top: 22px;
+}
+.drinks-catalog {
+  background: #e8e4db;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 9vw;
+}
+.drinks-catalog-intro h2 {
+  font-size: 39px;
+}
+.drinks-catalog-intro > p:not(.section-label) {
+  font-size: 16px;
+  line-height: 2.2;
+  margin-top: 22px;
+}
+.drinks-catalog-intro figure {
+  margin-top: 33px;
+}
+.drinks-catalog-intro img {
+  aspect-ratio: 4/3;
+}
+.drinks-catalog .drinks-menu {
+  margin-top: 0;
+  border-color: #bfb7a9;
+}
+.drinks-catalog .site-accordion [data-slot='accordion-trigger'] {
+  font-family: var(--font-editorial);
+  font-size: 27px;
+}
+.drinks-catalog .price-list > div {
+  font-size: 16px;
+  padding: 17px 0;
+  border-color: #ccc4b6;
+}
+.drinks-catalog > div > .fine-print {
+  margin-top: 25px;
+}
+.access-takeout-note {
+  padding: 0 8vw 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+.access-takeout-note p {
+  padding-left: 22px;
+  border-left: 2px solid var(--red);
+  font-size: 15px;
+}
+.access-takeout-note strong {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.access-takeout-note a {
+  border-bottom: 1px solid var(--red);
+  font-size: 14px;
+  white-space: nowrap;
+  padding: 10px 0;
+}
+.next-page {
+  padding: 45px 8vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  background: #e8e4db;
+  border-block: 1px solid var(--border);
+  transition:
+    color 0.2s,
+    background 0.2s;
+}
+.next-page:hover {
+  background: #ddd7cc;
+  color: var(--red);
+}
+.next-page small {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: var(--red);
+  font-family: Georgia, serif;
+}
+.next-page strong {
+  display: block;
+  font-family: var(--font-editorial);
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  margin-top: 9px;
+}
+.next-page > svg {
+  flex-shrink: 0;
+}
+.footer-navigation {
+  font-size: 13px;
+  line-height: 2;
+}
+.footer-navigation nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px 24px;
+}
+.footer-navigation > a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+.footer-navigation a:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.not-found {
+  text-align: center;
+}
+.not-found h1 {
+  font-size: 34px;
+  line-height: 1.7;
+}
+.not-found p {
+  margin-block: 25px;
+}
+.not-found .button {
+  margin-top: 15px;
+}
+@media (min-width: 1600px) {
+  .page-hero-copy {
+    padding-left: max(8vw, calc((100vw - 1350px) /2));
+  }
+  .page-hero {
+    min-height: 570px;
+  }
+  .page-hero-photo img {
+    min-height: 570px;
+  }
+  .tone-wine .page-hero-photo img {
+    min-height: 0;
+  }
+}
+@media (max-width: 1100px) {
+  .desktop-nav {
+    display: none;
+  }
+  .header-social {
+    margin-left: auto;
+  }
+  .mobile-nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 8px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  .mobile-nav a {
+    padding: 8px 12px;
+    white-space: nowrap;
+  }
+  .home-guide {
+    gap: 40px;
+    grid-template-columns: 1.6fr 1fr;
+  }
+  .takeout-teaser {
+    gap: 22px;
+  }
+  .home-guide h2 {
+    font-size: 26px;
+  }
+  .page-hero-copy {
+    padding: 42px 5vw;
+  }
+  .page-hero {
+    min-height: 450px;
+  }
+  .page-hero-photo img {
+    min-height: 450px;
+  }
+  .page-hero h1 {
+    font-size: 40px;
+  }
+  .page-hero h2 {
+    font-size: 27px;
+  }
+  .page-hero-description {
+    font-size: 15px;
+  }
+  .tone-wine .page-hero-photo img {
+    min-height: 0;
+  }
+  .about-story,
+  .drink-story {
+    gap: 6vw;
+  }
+  .story-chapters article {
+    gap: 17px;
+  }
+  .story-chapters h3 {
+    font-size: 23px;
+  }
+  footer {
+    flex-wrap: wrap;
+  }
+  .footer-navigation {
+    margin-left: auto;
+  }
+  .footer-right {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 0;
+    padding-right: 65px;
+  }
+  .back-top {
+    position: absolute;
+    right: 4.5vw;
+    bottom: 32px;
+  }
+}
+@media (max-width: 800px) {
+  .home-introduction {
+    gap: 35px;
+  }
+  .home-introduction > div:last-child > p {
+    font-size: 16px;
+  }
+  .home-chapters {
+    grid-template-columns: 1fr 1fr;
+  }
+  .chapter-card,
+  .chapter-card > div {
+    min-height: 470px;
+  }
+  .chapter-card > div {
+    padding: 40px 30px 32px;
+  }
+  .chapter-card h2 {
+    font-size: 32px;
+  }
+  .home-guide {
+    grid-template-columns: 1fr;
+  }
+  .access-teaser {
+    padding: 27px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 25px;
+  }
+  .access-teaser .section-label {
+    grid-column: 1/-1;
+  }
+  .access-teaser > p:not(.section-label) {
+    margin-top: 0;
+  }
+  .access-teaser .text-link {
+    grid-column: 1/-1;
+    justify-self: start;
+  }
+  .page-hero-copy {
+    padding: 38px 4vw;
+  }
+  .page-hero h1 {
+    font-size: 33px;
+  }
+  .page-hero h2 {
+    font-size: 25px;
+  }
+  .about-story {
+    grid-template-columns: 1fr;
+  }
+  .story-chapters {
+    margin-top: 10px;
+  }
+  .story-detail {
+    width: 88%;
+  }
+  .drinks-catalog {
+    gap: 40px;
+    grid-template-columns: 1fr 1.2fr;
+  }
+  .access-takeout-note {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+@media (max-width: 640px) {
+  .mobile-nav {
+    gap: 0;
+    padding: 0 10px;
+    justify-content: space-between;
+    overflow-x: auto;
+    scrollbar-width: none;
+    font-size: 14px;
+  }
+  .mobile-nav a {
+    padding: 13px 9px;
+    flex-shrink: 0;
+  }
+  .mobile-nav a[aria-current='page']:after {
+    left: 9px;
+    right: 9px;
+    bottom: 4px;
+  }
+  .home-introduction {
+    display: block;
+  }
+  .home-introduction h2 {
+    font-size: 39px;
+  }
+  .home-introduction > div:last-child {
+    margin-top: 27px;
+  }
+  .home-introduction > div:last-child > p {
+    font-size: 16px;
+    line-height: 2.3;
+  }
+  .home-chapters {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .chapter-card,
+  .chapter-card > div {
+    min-height: 475px;
+  }
+  .chapter-card > div {
+    padding: 48px 27px 34px;
+  }
+  .chapter-card h2 {
+    font-size: 36px;
+  }
+  .chapter-card p {
+    font-size: 16px;
+  }
+  .chapter-link {
+    font-size: 15px;
+    padding-top: 20px;
+    margin-top: 28px;
+  }
+  .home-guide {
+    gap: 37px;
+  }
+  .takeout-teaser {
+    grid-template-columns: 0.7fr 1fr;
+    gap: 20px;
+  }
+  .takeout-teaser > img {
+    aspect-ratio: 3/4;
+  }
+  .home-guide h2 {
+    font-size: 25px;
+  }
+  .home-guide .section-label {
+    font-size: 12px;
+  }
+  .home-guide .text-link {
+    font-size: 13px;
+    gap: 9px;
+  }
+  .access-teaser {
+    display: block;
+    padding-top: 32px;
+  }
+  .access-teaser h2 {
+    font-size: 32px;
+  }
+  .access-teaser > p:not(.section-label) {
+    margin-top: 15px;
+  }
+  .page-breadcrumb {
+    padding: 15px 25px;
+  }
+  .page-breadcrumb [data-slot='breadcrumb-list'] {
+    font-size: 12px;
+    gap: 10px;
+  }
+  .page-hero {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .page-hero-copy {
+    padding: 39px 26px 37px;
+  }
+  .page-kicker {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+  .page-hero h1 {
+    font-size: 36px;
+    margin-top: 15px;
+    line-height: 1.65;
+  }
+  .page-hero h2 {
+    font-size: 27px;
+    line-height: 1.8;
+    margin-top: 19px;
+  }
+  .page-hero-description {
+    font-size: 15px;
+    line-height: 2;
+    margin-top: 19px;
+  }
+  .page-hero-photo {
+    height: 280px;
+    max-height: none;
+  }
+  .page-hero-photo img {
+    min-height: 0;
+    height: 100%;
+    object-position: 50% 55%;
+  }
+  .tone-wine .page-hero-photo {
+    height: auto;
+    padding: 25px;
+  }
+  .tone-wine .page-hero-photo img {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+  }
+  .page-jump-links {
+    padding: 20px 25px;
+    gap: 15px;
+    align-items: stretch;
+  }
+  .page-jump-links a {
+    font-size: 14px;
+    flex: 1;
+    gap: 10px;
+    justify-content: space-between;
+  }
+  .page-jump-links a + a {
+    padding-left: 15px;
+    border-left: 1px solid var(--border);
+  }
+  .about-story {
+    gap: 33px;
+  }
+  .story-heading h2 {
+    font-size: 37px;
+  }
+  .story-heading > p:last-child {
+    margin-top: 21px;
+  }
+  .story-chapters article {
+    gap: 18px;
+    padding-bottom: 28px;
+    margin-bottom: 28px;
+  }
+  .story-chapters h3 {
+    font-size: 24px;
+    line-height: 1.7;
+  }
+  .story-chapters p {
+    font-size: 16px;
+    line-height: 2.1;
+  }
+  .story-detail {
+    width: calc(100% - 50px);
+  }
+  .story-detail img {
+    aspect-ratio: 4/3;
+  }
+  .takeout-page-wrap {
+    padding: 0;
+  }
+  .drink-story {
+    display: block;
+  }
+  .drink-story h2 {
+    font-size: 32px;
+  }
+  .drink-story > div:last-child {
+    margin-top: 27px;
+  }
+  .drinks-catalog {
+    display: block;
+  }
+  .drinks-catalog-intro h2 {
+    font-size: 35px;
+  }
+  .drinks-catalog-intro figure {
+    max-width: 85%;
+    margin-left: auto;
+    margin-bottom: 32px;
+  }
+  .drinks-catalog .price-list > div {
+    font-size: 15px;
+  }
+  .drinks-catalog .site-accordion [data-slot='accordion-trigger'] {
+    font-size: 24px;
+  }
+  .access-takeout-note {
+    padding: 0 25px 55px;
+    gap: 16px;
+  }
+  .access-takeout-note p {
+    font-size: 14px;
+  }
+  .next-page {
+    padding: 32px 25px;
+    gap: 20px;
+  }
+  .next-page strong {
+    font-size: 24px;
+    line-height: 1.7;
+  }
+  .next-page > svg {
+    width: 26px;
+  }
+  footer {
+    gap: 28px;
+  }
+  .footer-navigation {
+    margin-left: 0;
+    width: 100%;
+    font-size: 14px;
+  }
+  .footer-navigation nav {
+    gap: 12px 25px;
+  }
+  .footer-navigation > a {
+    margin-top: 12px;
+  }
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-right: 0;
+  }
+  .back-top {
+    right: 25px;
+    bottom: 35px;
+  }
+  .not-found h1 {
+    font-size: 28px;
+  }
+}

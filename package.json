@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "vinext dev",
     "build": "vinext build",
+    "build:github-pages": "SITE_STATIC_EXPORT=1 NEXT_PUBLIC_BASE_PATH=/kurego-goroku NEXT_PUBLIC_SITE_ORIGIN=https://crestix-company.github.io vinext build && node scripts/prepare-pages.mjs",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "lint": "oxlint",
     "format": "oxfmt"
