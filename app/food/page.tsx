@@ -6,7 +6,7 @@ import { FoodSection, TakeoutSection } from '../sections';
 export const metadata: Metadata = {
   title: 'お料理・お品書き',
   description:
-    '紅 五-五六の地魚のお造り、揚げ物、一品料理、焼き物のお品書き。火・水・土曜のランチはフィッシュバーガーのテイクアウトのみです。',
+    '紅五-五六の地魚のお造り、揚げ物、一品料理、焼き物のお品書き。土曜日のみ、ランチにフィッシュバーガーのテイクアウトをご用意しています。',
   alternates: { canonical: canonicalUrl('/food') },
 };
 export default function FoodPage() {
@@ -39,7 +39,7 @@ export default function FoodPage() {
           夜のお料理・お品書き<span>↓</span>
         </a>
         <a href="#takeout">
-          昼のテイクアウト<span>↓</span>
+          土曜限定テイクアウト<span>↓</span>
         </a>
       </nav>
       <FoodSection />

@@ -3,10 +3,11 @@ export const dynamic = 'force-static';
 import type { Metadata } from 'next';
 import { SiteFrame, PageHero, Photo, NextPage } from '../site';
 import { DrinkMenu } from '../menus';
+import { SakeGallery } from '../sake-gallery';
 export const metadata: Metadata = {
   title: 'お飲み物・日本酒',
   description:
-    '季節の日本酒を、三浦半島の地魚とともに。紅 五-五六の日本酒、ビール、焼酎、サワーなどのお飲み物をご紹介します。',
+    '季節の日本酒を、三浦半島の地魚とともに。紅五-五六の日本酒、ビール、焼酎、サワーなどのお飲み物をご紹介します。',
   alternates: { canonical: canonicalUrl('/drink') },
 };
 export default function DrinkPage() {
@@ -30,10 +31,18 @@ export default function DrinkPage() {
             今夜のお料理に、そっと寄り添う一杯を。
           </>
         }
-        photo="sake"
-        alt="紅 五-五六で取り扱う日本酒の一例"
+        photo="sake-zaku-counter"
+        alt="紅五-五六のカウンターに置かれた日本酒「作 Z」"
         tone="wine"
       />
+      <nav className="page-jump-links" aria-label="お飲み物ページの内容">
+        <a href="#sake-collection">
+          お酒の写真<span>↓</span>
+        </a>
+        <a href="#drinks-menu">
+          お品書き・料金<span>↓</span>
+        </a>
+      </nav>
       <section className="drink-story section-pad">
         <div>
           <p className="section-label">日本酒と、地魚と。</p>
@@ -45,8 +54,7 @@ export default function DrinkPage() {
         </div>
         <div>
           <p>
-            日本酒は、当店の魚料理に合うものを選んでいます。季節によって銘柄が変わるのも、紅
-            五-五六の楽しみのひとつ。
+            日本酒は、当店の魚料理に合うものを選んでいます。季節によって銘柄が変わるのも、紅五-五六の楽しみのひとつ。
           </p>
           <p>
             「このお造りに合わせるなら？」
@@ -60,6 +68,7 @@ export default function DrinkPage() {
           </p>
         </div>
       </section>
+      <SakeGallery />
       <section className="drinks-catalog section-pad" id="drinks-menu">
         <div className="drinks-catalog-intro">
           <p className="section-label">お飲み物のお品書き</p>

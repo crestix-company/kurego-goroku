@@ -6,7 +6,7 @@ import { AccessSection } from '../sections';
 export const metadata: Metadata = {
   title: '店舗案内・ご予約',
   description:
-    '神奈川県横須賀市深田台36、横須賀中央駅徒歩3分。紅 五-五六の営業時間・定休日・アクセス・WEB予約・電話予約のご案内です。',
+    '神奈川県横須賀市深田台36、横須賀中央駅徒歩3分。紅五-五六の営業時間・定休日・アクセス・WEB予約・電話予約のご案内です。',
   alternates: { canonical: canonicalUrl('/access') },
 };
 export default function AccessPage() {
@@ -31,7 +31,7 @@ export default function AccessPage() {
           </>
         }
         photo="interior"
-        alt="全12席の紅 五-五六の店内"
+        alt="全12席の紅五-五六の店内"
         tone="paper"
       />
       <nav className="page-jump-links" aria-label="店舗案内ページの内容">
@@ -47,7 +47,7 @@ export default function AccessPage() {
         <p>
           <strong>お昼のご利用について</strong>
           <span>
-            火・水・土曜日はフィッシュバーガーのテイクアウトのみです。
+            土曜日のみ、フィッシュバーガーのテイクアウトをご用意しています。
           </span>
         </p>
         <a href={pageUrl('/food#takeout')}>テイクアウトのご案内 →</a>

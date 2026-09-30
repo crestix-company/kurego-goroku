@@ -3,12 +3,14 @@ import type { ReactNode } from 'react';
 import { ArrowRight, ArrowUpRight, Camera, Phone } from 'lucide-react';
 import { PageBreadcrumb } from './page-breadcrumb';
 import { MotionEffects } from './motion';
+import { Photo } from './photo';
+export { Photo } from './photo';
 export const reservation =
   'https://v2.rsv-crane.jp/reservation-form?manager_code=q6q7';
 export const instagram = 'https://www.instagram.com/kure_5562023/';
 export const map =
   'https://www.google.com/maps/search/?api=1&query=' +
-  encodeURIComponent('四季酒肴 地魚 紅 五-五六 神奈川県横須賀市深田台36');
+  encodeURIComponent('四季酒肴 地魚 紅五-五六 神奈川県横須賀市深田台36');
 export const external = {
   target: '_blank',
   rel: 'noopener noreferrer',
@@ -20,47 +22,6 @@ export const navigation = [
   { href: '/drink', label: 'お飲み物', short: 'お飲み物' },
   { href: '/access', label: '店舗案内・予約', short: '店舗案内' },
 ];
-const photoDimensions: Record<string, readonly [number, number]> = {
-  hero: [1600, 1067],
-  sashimi: [1200, 900],
-  aji: [1108, 1477],
-  simmered: [1108, 1477],
-  fresh: [1108, 1477],
-  yakitori: [1108, 1477],
-  burger: [1200, 800],
-  sake: [900, 608],
-  interior: [900, 600],
-  counter: [900, 600],
-};
-export function Photo({
-  name,
-  alt,
-  className = '',
-  sizes = '(max-width: 640px) 90vw, 45vw',
-  priority = false,
-}: {
-  name: string;
-  alt: string;
-  className?: string;
-  sizes?: string;
-  priority?: boolean;
-}) {
-  const [width, height] = photoDimensions[name];
-  return (
-    <img
-      className={className}
-      src={assetUrl(`/images/${name}.webp`)}
-      srcSet={`${assetUrl(`/images/${name}-small.webp`)} 600w, ${assetUrl(`/images/${name}.webp`)} ${width}w`}
-      sizes={sizes}
-      width={width}
-      height={height}
-      alt={alt}
-      loading={priority ? 'eager' : 'lazy'}
-      fetchPriority={priority ? 'high' : 'auto'}
-      decoding="async"
-    />
-  );
-}
 function Navigation({
   path,
   mobile = false,
@@ -130,12 +91,10 @@ export function SiteFrame({
         <a
           className="brand"
           href={pageUrl('/')}
-          aria-label="四季酒肴 地魚 紅 五-五六 ホーム"
+          aria-label="四季酒肴 地魚 紅五-五六 ホーム"
         >
           <span className="brand-caption">四季酒肴 地魚</span>
-          <span className="brand-name">
-            <b>紅</b> 五-五六
-          </span>
+          <span className="brand-name">紅五-五六</span>
         </a>
         <Navigation path={path} />
         <a
@@ -160,16 +119,16 @@ export function SiteFrame({
       <footer>
         <a className="footer-brand" href={pageUrl('/')}>
           <img
-            src={assetUrl("/images/logo.webp")}
+            src={assetUrl('/images/logo.webp')}
             width="84"
             height="84"
-            alt="紅 五-五六 ロゴ"
+            alt="紅五-五六 ロゴ"
             loading="lazy"
           />
           <span>
             四季酒肴 地魚
             <br />
-            <strong>紅 五-五六</strong>
+            <strong>紅五-五六</strong>
           </span>
         </a>
         <div className="footer-navigation">
@@ -185,7 +144,7 @@ export function SiteFrame({
             ))}
           </nav>
           <a href={pageUrl('/food#takeout')}>
-            ランチ・テイクアウト
+            土曜限定・テイクアウト
             <ArrowUpRight size={15} />
           </a>
         </div>

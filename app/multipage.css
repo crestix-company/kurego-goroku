@@ -1,4 +1,4 @@
-/* Multi-page editorial layouts. Shared brand and photo assets stay unchanged. */
+/* Multi-page editorial layouts. */
 .desktop-nav a[aria-current='page'],
 .mobile-nav a[aria-current='page'] {
   color: var(--red);
@@ -95,7 +95,20 @@
   font-size: 16px;
 }
 .chapter-sake > img {
-  object-position: 50% center;
+  position: static;
+  height: 390px;
+  object-fit: contain;
+  background: #e8e4db;
+}
+.chapter-sake:after {
+  display: none;
+}
+.chapter-sake:hover > img {
+  transform: none;
+}
+.chapter-card.chapter-sake > div {
+  min-height: 0;
+  padding-top: 32px;
 }
 .home-guide {
   display: grid;
@@ -231,6 +244,105 @@
   min-height: 0;
   max-height: 450px;
   object-fit: contain;
+}
+.sake-collection {
+  padding-top: 0;
+}
+.sake-collection h2 {
+  font-size: clamp(27px, 3vw, 44px);
+}
+.sake-title-phrase {
+  white-space: nowrap;
+}
+.sake-gallery-hint {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 25px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.sake-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 36px 24px;
+}
+.sake-grid figure {
+  min-width: 0;
+}
+.sake-grid a {
+  display: block;
+  position: relative;
+  background: #e8e4db;
+}
+.sake-grid img {
+  aspect-ratio: 3 / 4;
+  height: auto;
+  object-fit: contain;
+}
+.sake-grid figcaption {
+  margin-top: 13px;
+  font-family: var(--font-editorial);
+  font-size: 17px;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+.sake-expand {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: var(--ink);
+  background: var(--paper);
+  border-radius: 50%;
+  transition: background 180ms, color 180ms;
+}
+.sake-grid a:hover .sake-expand,
+.sake-grid a:focus-visible .sake-expand {
+  background: var(--red);
+  color: white;
+}
+.sake-lightbox {
+  margin: auto;
+  padding: 60px 20px 16px;
+  width: min(940px, calc(100vw - 32px));
+  max-width: none;
+  max-height: 94svh;
+  border: 0;
+  color: var(--paper);
+  background: #191d1b;
+}
+.sake-lightbox::backdrop {
+  background: #111713ed;
+}
+.sake-lightbox img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(94svh - 125px);
+  margin-inline: auto;
+  object-fit: contain;
+}
+.sake-lightbox figcaption {
+  margin-top: 12px;
+  text-align: center;
+  color: var(--paper);
+  font-size: 15px;
+}
+.sake-lightbox-close {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  color: var(--paper);
+  border: 1px solid #ffffff55;
 }
 .page-jump-links {
   display: flex;
@@ -461,6 +573,9 @@
   }
 }
 @media (max-width: 1100px) {
+  .sake-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
   .desktop-nav {
     display: none;
   }
@@ -608,6 +723,23 @@
   }
 }
 @media (max-width: 640px) {
+  .sake-collection.section-pad {
+    padding-top: 0;
+  }
+  .sake-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 14px;
+  }
+  .sake-grid figcaption {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .sake-expand {
+    width: 30px;
+    height: 30px;
+    right: 7px;
+    bottom: 7px;
+  }
   .mobile-nav {
     gap: 0;
     padding: 0 10px;
@@ -664,14 +796,17 @@
     gap: 37px;
   }
   .takeout-teaser {
-    grid-template-columns: 0.7fr 1fr;
-    gap: 20px;
+    grid-template-columns: 0.65fr 1.35fr;
+    gap: 18px;
   }
   .takeout-teaser > img {
     aspect-ratio: 3/4;
   }
   .home-guide h2 {
     font-size: 25px;
+  }
+  .home-guide .takeout-teaser h2 {
+    font-size: clamp(19px, 5.15vw, 25px);
   }
   .home-guide .section-label {
     font-size: 12px;
@@ -740,7 +875,7 @@
   .tone-wine .page-hero-photo img {
     height: auto;
     min-height: 0;
-    max-height: none;
+    max-height: 460px;
   }
   .page-jump-links {
     padding: 20px 25px;

@@ -31,7 +31,7 @@ export function FoodSection() {
           <p className="english-label">SASHIMI</p>
           <h3>まずは、お造りから。</h3>
           <p>
-            つりあじをはじめ、旬の地魚を。
+            釣りあじをはじめ、旬の地魚を。
             <br />
             魚それぞれの旨みを、まっすぐに。
           </p>
@@ -102,13 +102,13 @@ export function TakeoutSection() {
           alt="地魚のフライとタルタルソースを挟んだフィッシュバーガー"
         />
         <span className="takeout-mark">
-          昼は、
+          土曜の昼は、
           <br />
           地魚バーガー。
         </span>
       </div>
       <div className="takeout-copy">
-        <p className="section-label">LUNCH — TAKE OUT ONLY</p>
+        <p className="section-label">SATURDAY LUNCH — TAKE OUT ONLY</p>
         <h2>
           海のごちそうを、
           <br />
@@ -118,10 +118,11 @@ export function TakeoutSection() {
           地魚のおいしさを、もっと気軽に。
           <br />
           サクッと揚げた魚を挟んだ、
-          <br />紅 五-五六のフィッシュバーガー。
+          <br />
+          紅五-五六のフィッシュバーガー。
         </p>
         <div className="takeout-hours">
-          <strong>火・水・土曜日</strong>
+          <strong>土曜日のみ</strong>
           <span>
             12:00〜14:00 <small>（L.O. 13:30）</small>
           </span>
@@ -249,9 +250,13 @@ export function AccessSection() {
     <section className="access-section section-pad" id="access">
       <div className="access-title">
         <p className="section-label">ACCESS & HOURS</p>
-        <h2>今夜は、紅へ。</h2>
+        <h2>
+          今夜は、
+          <br />
+          <span className="shop-name">紅五-五六へ。</span>
+        </h2>
         <p>
-          四季酒肴 地魚 紅 五-五六
+          四季酒肴 地魚 紅五-五六
           <br />
           <span className="fine-print">くれごーごーろく</span>
         </p>
@@ -294,7 +299,7 @@ export function AccessSection() {
         </dl>
         <div className="lunch-hours">
           <p>
-            <b>ランチ｜火・水・土曜日</b>
+            <b>ランチ｜土曜日のみ</b>
             <br />
             12:00〜14:00 <span>（L.O. 13:30）</span>
           </p>

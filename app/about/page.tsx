@@ -6,7 +6,7 @@ import { SpaceSection } from '../sections';
 export const metadata: Metadata = {
   title: 'お店について',
   description:
-    '三浦半島の地魚を、その魚に合う一皿へ。紅 五-五六の料理への思いと、カウンター4席・テーブル8席の温かな店内をご紹介します。',
+    '三浦半島の地魚を、その魚に合う一皿へ。紅五-五六の料理への思いと、カウンター4席・テーブル8席の温かな店内をご紹介します。',
   alternates: { canonical: canonicalUrl('/about') },
 };
 export default function AboutPage() {
@@ -27,7 +27,7 @@ export default function AboutPage() {
           <>
             その日の魚と、料理人のひと手間。
             <br />
-            気取らず味わう、紅 五-五六の時間。
+            気取らず味わう、紅五-五六の時間。
           </>
         }
         photo="fresh"
@@ -54,7 +54,7 @@ export default function AboutPage() {
             <div>
               <h3>その日の海を、いただく。</h3>
               <p>
-                信頼する仲卸から届く、三浦半島の地魚。漁や季節によって、並ぶ魚は日々変わります。つりあじをはじめ、そのときに出会えるおいしさを大切にしています。
+                信頼する仲卸から届く、三浦半島の地魚。漁や季節によって、並ぶ魚は日々変わります。釣りあじをはじめ、そのときに出会えるおいしさを大切にしています。
               </p>
             </div>
           </article>

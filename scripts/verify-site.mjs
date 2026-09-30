@@ -17,7 +17,9 @@ const routes = {
     '今宵も、',
     '旬と一献。',
     'この街で、',
-    '紅 五-五六について',
+    '紅五-五六について',
+    '土曜日のお昼限定',
+    '今夜は、紅五-五六へ。',
     'お料理・お品書き',
     'お飲み物・お品書き',
     '公式Instagramを見る',
@@ -29,13 +31,14 @@ const routes = {
     '全12席',
     'カウンター',
     'テーブル',
+    '釣りあじ',
   ],
   '/food': [
     'お料理',
     '地魚・お造り・揚げ物',
     '一品料理',
     '焼き物',
-    '火・水・土曜日',
+    '土曜日のみ',
     '12:00〜14:00',
     'L.O. 13:30',
     'お昼はテイクアウトのみ',
@@ -49,6 +52,9 @@ const routes = {
     '焼酎',
     'ソフトドリンク',
     '表示価格は税込',
+    '季節ごとに、出会う一杯。',
+    'W ひだほまれ',
+    '花邑',
   ],
   '/access': [
     '店舗案内・ご予約',
@@ -62,6 +68,8 @@ const routes = {
     'テイクアウトのみ',
     '現金のみ',
     '専用駐車場はございません',
+    'ランチ｜土曜日のみ',
+    '今夜は、紅五-五六へ。',
   ],
 };
 const foodPrices = [
@@ -132,7 +140,10 @@ for (const [path, content] of Object.entries(routes)) {
   const html = raw.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '');
   assert.match(html, /<html[^>]+lang="ja"/);
   const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
-  assert(title?.includes('紅 五-五六'), 'Site-specific title missing: ' + path);
+  assert(title?.includes('紅五-五六'), 'Site-specific title missing: ' + path);
+  assert(!/つりあじ|火・水・土|紅\s+五-五六|紅へ/.test(cleanText(html)), 'Outdated spelling, abbreviated brand or lunch days: ' + path);
+  assert(!/name="description"[^>]*火・水・土/.test(html), 'Outdated lunch metadata: ' + path);
+  assert.match(html, /class="brand-name">紅五-五六<\/span>/, 'Full brand name must appear in the shared header');
   assert(!titles.has(title), 'Duplicate page title: ' + path);
   titles.add(title);
   assert.equal(
@@ -219,6 +230,7 @@ for (const [path, page] of pages) {
     if (!link.startsWith('/') && !link.startsWith('#')) continue;
     const url = new URL(link, new URL(pagePath(path), root));
     if (url.origin !== root.origin) continue;
+    if (/\.webp$/.test(url.pathname)) { assets.add(url.pathname); continue; }
     const destination = pages.get(routePath(url.pathname));
     assert(destination, 'Unknown internal page: ' + path + ' → ' + link);
     if (url.hash)
@@ -264,6 +276,11 @@ assert(
   'Home should link to the independent menu pages',
 );
 let bytes = 0;
+const gallery = pages.get('/drink').html.match(/<div class="sake-grid">([\s\S]*?)<\/div><dialog/)?.[1];
+assert(gallery, 'Sake photo gallery missing');
+assert.equal((gallery.match(/<figure\b/g) || []).length, 12, 'Expected 12 distinct sake gallery photos');
+assert(pages.get('/').html.includes('/images/sake-zaku.webp'), 'Home must use the supplied Zaku photo');
+assert(pages.get('/drink').html.includes('/images/sake-zaku-counter.webp'), 'Drink hero must use the supplied counter photo');
 for (const path of assets) {
   const response = await request(path);
   assert.equal(response.status, 200, 'Asset failed: ' + path);

@@ -13,7 +13,7 @@ export default function Home() {
         <div className="hero-visual">
           <Photo
             name="hero"
-            alt="三浦半島の旬の地魚を盛り込んだ紅 五-五六のお造り"
+            alt="三浦半島の旬の地魚を盛り込んだ紅五-五六のお造り"
             priority
             sizes="(max-width: 640px) 100vw, 72vw"
           />
@@ -37,7 +37,7 @@ export default function Home() {
         <div className="hero-bottom">
           <span>KURE GO-GOROKU</span>
           <a href="#discover">
-            紅 五-五六を知る
+            紅五-五六を知る
             <ArrowDown size={16} />
           </a>
           <span>四季酒肴・地魚</span>
@@ -52,7 +52,7 @@ export default function Home() {
       </div>
       <section className="home-introduction section-pad" id="discover">
         <div>
-          <p className="section-label">四季酒肴 地魚 — 紅 五-五六</p>
+          <p className="section-label">四季酒肴 地魚 — 紅五-五六</p>
           <h2>
             この街で、
             <br />
@@ -68,7 +68,7 @@ export default function Home() {
             全12席の小さな一軒で、肩の力を抜いて。
           </p>
           <a className="text-link" href={pageUrl('/about')}>
-            紅 五-五六について
+            紅五-五六について
             <ArrowRight size={21} />
           </a>
         </div>
@@ -92,9 +92,9 @@ export default function Home() {
         </a>
         <a className="chapter-card chapter-sake" href={pageUrl('/drink')}>
           <Photo
-            name="sake"
-            alt="お料理と合わせる日本酒"
-            sizes="(max-width: 640px) 100vw, 50vw"
+            name="sake-zaku"
+            alt="紅五-五六のカウンターに置かれた日本酒「作 Z」"
+            sizes="(max-width: 640px) 85vw, 320px"
           />
           <div>
             <span className="chapter-number">02 / DRINKS</span>
@@ -115,7 +115,7 @@ export default function Home() {
             sizes="(max-width: 640px) 35vw, 20vw"
           />
           <div>
-            <p className="section-label">火・水・土のお昼は</p>
+            <p className="section-label">土曜日のお昼限定</p>
             <h2>
               地魚バーガーを、
               <br />
@@ -129,7 +129,11 @@ export default function Home() {
         </a>
         <a className="access-teaser" href={pageUrl('/access')}>
           <p className="section-label">VISIT US</p>
-          <h2>今夜は、紅へ。</h2>
+          <h2>
+            今夜は、
+            <br />
+            <span className="shop-name">紅五-五六へ。</span>
+          </h2>
           <p>
             横須賀中央駅より徒歩3分。
             <br />

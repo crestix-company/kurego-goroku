@@ -140,11 +140,12 @@ h3 {
   font-family: var(--font-editorial);
   font-size: 31px;
   letter-spacing: 0.08em;
-}
-.brand-name b {
   color: var(--red);
-  font-size: 38px;
   font-weight: 500;
+  white-space: nowrap;
+}
+.shop-name {
+  white-space: nowrap;
 }
 .desktop-nav {
   margin-left: auto;
@@ -1037,9 +1038,6 @@ footer {
   }
   .brand-name {
     font-size: 24px;
-  }
-  .brand-name b {
-    font-size: 29px;
   }
   .header-social {
     display: none;
